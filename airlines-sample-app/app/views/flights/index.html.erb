@@ -1,0 +1,9 @@
+<h1>Flights</h1>
+
+<ul id="flights">
+  <% @flights.each do |flights| %>
+    <li>
+      <strong>From:</strong> <%= flights.from %>, <strong>To:</strong> <%= flights.to %>, <strong>Price:</strong> $<%= flights.price %>
+    </li>
+  <% end %>
+</ul>
