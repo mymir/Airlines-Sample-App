@@ -1,1 +1,1 @@
-# Airlines-Sample-App
+# airlines-sample-app
