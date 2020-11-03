@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Airlines Sample App
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Airlines Sample App is a mock up of a booking application that allows users to book flights. Users can search for flights using airport codes and departure dates. Once a flight has been selected, users can enter passenger information and purchase their flight.
