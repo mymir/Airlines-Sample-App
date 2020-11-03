@@ -1,9 +1,19 @@
 <h1>Flights</h1>
 
-<ul id="flights">
-  <% @flights.each do |flights| %>
-    <li>
-      <strong>From:</strong> <%= flights.from %>, <strong>To:</strong> <%= flights.to %>, <strong>Price:</strong> $<%= flights.price %>
-    </li>
-  <% end %>
-</ul>
+<%= form_tag('/flights', method: 'get') do %>
+  <%= label_tag('Departure Date: ') %><br/>
+  <%= select_tag 'departure', options_from_collection_for_select(Flight.get_departure_dates, 'departure', :date_formatted) %><br/>
+
+  <%= label_tag('Departing From: ') %><br/>
+  <%= select_tag 'from_airport', options_from_collection_for_select(@airports, 'id', :code) %><br/>
+
+  <%= label_tag('Arriving At: ') %><br/>
+  <%= select_tag 'to_airport', options_from_collection_for_select(@airports, 'id', :code) %><br/>
+
+  <%= label_tag('Number of Passengers: ') %>
+  <%= number_field_tag 'passengers', options_for_select(1..4) %> <br/>
+
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<%= render partial: 'results' %>
