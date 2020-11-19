@@ -1,0 +1,17 @@
+<%= credit_card_form.label :first_name %>
+<%= credit_card_form.text_field :first_name%><br/>
+
+<%= credit_card_form.label :last_name %>
+<%= credit_card_form.text_field :last_name%><br/>
+
+<%= credit_card_form.label :number, "Card Number" %>
+<%= credit_card_form.text_field :number, autocomplete: "off" %><br/>
+
+<%= credit_card_form.label :verification_value, "CVV" %>
+<%= credit_card_form.text_field :verification_value, autocomplete: "off" %><br/>
+
+<%= credit_card_form.label :month, "Expiration" %>
+<%= credit_card_form.text_field :month, placeholder: "Month" %>
+
+<%= credit_card_form.label :year, "&nbsp;".html_safe %>
+<%= credit_card_form.text_field :year, placeholder: "Year" %><br/>

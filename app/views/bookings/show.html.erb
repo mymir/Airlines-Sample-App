@@ -1,0 +1,25 @@
+<h1>Booking</h1>
+
+<strong>Transaction Success: </strong><%= @booking.success %>
+
+<h2>Flight</h2>
+
+<span>
+  <strong>Departing From: </strong><%= @flight.from_airport.code %><br/>
+  <strong>Arriving At: </strong><%= @flight.to_airport.code %><br/>
+  <strong>Departure Date: </strong><%= @flight.departure %><br/>
+  <strong>Flight Duration: </strong><%= @flight.flight_duration %> hours<br/> 
+  <strong>Flight Price: </strong>$<%= @flight.price %><br/>
+  <strong>Total Cost: </strong>$<%= @flight.price * @booking.num_passengers %>
+</span><br/>
+
+<h2>Passenger</h2>
+
+<% @booking.passengers.each do |passenger| %>
+  <span>
+    <strong>Name: </strong><%= passenger.name %>
+    <strong>Email: </strong><%= passenger.email %>
+  </span><br/>
+<% end %>
+<br/>
+<strong><%= link_to "Home", root_path %></strong>

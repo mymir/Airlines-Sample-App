@@ -1,0 +1,25 @@
+<h1>Payment Information</h1>
+<h2>Total Cost: $<%= @booking.flight.price * @booking.num_passengers %></h2>
+
+<h2>Gateway</h2>
+<%= form_for @credit_card, :as => :credit_card, :url => Spreedly.add_payment_method_url do |credit_card_form| %>
+
+  <%= render 'credit_cards/payment_fields', :credit_card_form => credit_card_form %>
+  <%= credit_card_form.label "credit_card_retained", "Save Card?" %>
+  <%= check_box_tag "data[retained]", @credit_card.retained, :id => "credit_card_retained" %><br/>
+
+  <%= render 'credit_cards/hidden_form_fields', :booking_id => @booking.id %>
+  <%= hidden_field_tag :redirect_url, make_purchase_url.concat("?booking_id=#{@booking.id}") %>
+
+  <%= credit_card_form.submit 'Purchase' %>
+<% end %>
+
+<h2>PMD</h2>
+<%= form_for @credit_card, :as => :credit_card, :url => Receiver.add_payment_method_url do |credit_card_form_receiver| %>
+
+  <%= render 'credit_cards/payment_fields', :credit_card_form => credit_card_form_receiver %>
+  <%= render 'credit_cards/hidden_form_fields', :booking_id => @booking.id %>
+  <%= hidden_field_tag :redirect_url, make_delivery_url.concat("?booking_id=#{@booking.id}") %>
+
+  <%= credit_card_form_receiver.submit 'Purchase' %>
+<% end %>
